@@ -9,9 +9,17 @@
   </head>
 
   <body class="page">
+    <div>
+      <p>Number of Discord members</p>
+      <p class="members">225000</p>
+    </div>
     <div class="slider" id="slider">
       <input class="slider__input" type="range" min="1" max="100" value="49" />
       <div class="slider__footer"><span class="slider__value">50%</span></div>
+    </div>
+    <div>
+      <p>Approx. income from links</p>
+      <p>$<span class="amount">49000</span></p>
     </div>
 
     <script>
@@ -20,12 +28,16 @@
       const elSlider = document.getElementById('slider');
       const elSliderInput = document.querySelector('.slider__input');
       const elSliderValue = document.querySelector('.slider__value');
+      const members = document.querySelector('.members');
+      const amount = document.querySelector('.amount');
 
       elSliderInput.oninput = updateValue;
       updateValue();
 
       function updateValue() {
         elSliderValue.textContent = `${elSliderInput.value}%`;
+        members.textContent = ((elSliderInput.value * 459184) / 100).toFixed(0);
+        amount.textContent = (elSliderInput.value * 1000).toFixed(0);
       }
     </script>
   </body>
